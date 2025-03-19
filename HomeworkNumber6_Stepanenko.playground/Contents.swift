@@ -46,7 +46,7 @@ func getTopStudents(students: [Student], top: Int) -> [(name: String, averageGra
 
 func getUniqueOptionalSubjects(students: [Student]) -> Set<String> {
     return students.flatMap { $0.elective }
-                                        .reduce(into: Set<String>()) { $0.insert($1) }
+                                         .reduce(into: Set<String>()) { $0.insert($1) }
 }
 
 var messageAboutAverageGrade = ""
