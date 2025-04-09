@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		C69E93D32DA586940017213B /* Homework10_Stepanenko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework10_Stepanenko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C69E93F42DA665EF0017213B /* Homework10_Stepanenko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework10_Stepanenko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C69E93E52DA586950017213B /* Exceptions for "Homework10_Stepanenko" folder in "Homework10_Stepanenko" target */ = {
+		C69E94062DA665F10017213B /* Exceptions for "Homework10_Stepanenko" folder in "Homework10_Stepanenko" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = C69E93D22DA586940017213B /* Homework10_Stepanenko */;
+			target = C69E93F32DA665EF0017213B /* Homework10_Stepanenko */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C69E93D52DA586940017213B /* Homework10_Stepanenko */ = {
+		C69E93F62DA665EF0017213B /* Homework10_Stepanenko */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C69E93E52DA586950017213B /* Exceptions for "Homework10_Stepanenko" folder in "Homework10_Stepanenko" target */,
+				C69E94062DA665F10017213B /* Exceptions for "Homework10_Stepanenko" folder in "Homework10_Stepanenko" target */,
 			);
 			path = Homework10_Stepanenko;
 			sourceTree = "<group>";
@@ -32,7 +32,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C69E93D02DA586940017213B /* Frameworks */ = {
+		C69E93F12DA665EF0017213B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C69E93CA2DA586940017213B = {
+		C69E93EB2DA665EF0017213B = {
 			isa = PBXGroup;
 			children = (
-				C69E93D52DA586940017213B /* Homework10_Stepanenko */,
-				C69E93D42DA586940017213B /* Products */,
+				C69E93F62DA665EF0017213B /* Homework10_Stepanenko */,
+				C69E93F52DA665EF0017213B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C69E93D42DA586940017213B /* Products */ = {
+		C69E93F52DA665EF0017213B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C69E93D32DA586940017213B /* Homework10_Stepanenko.app */,
+				C69E93F42DA665EF0017213B /* Homework10_Stepanenko.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,64 +61,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C69E93D22DA586940017213B /* Homework10_Stepanenko */ = {
+		C69E93F32DA665EF0017213B /* Homework10_Stepanenko */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C69E93E62DA586950017213B /* Build configuration list for PBXNativeTarget "Homework10_Stepanenko" */;
+			buildConfigurationList = C69E94072DA665F10017213B /* Build configuration list for PBXNativeTarget "Homework10_Stepanenko" */;
 			buildPhases = (
-				C69E93CF2DA586940017213B /* Sources */,
-				C69E93D02DA586940017213B /* Frameworks */,
-				C69E93D12DA586940017213B /* Resources */,
+				C69E93F02DA665EF0017213B /* Sources */,
+				C69E93F12DA665EF0017213B /* Frameworks */,
+				C69E93F22DA665EF0017213B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C69E93D52DA586940017213B /* Homework10_Stepanenko */,
+				C69E93F62DA665EF0017213B /* Homework10_Stepanenko */,
 			);
 			name = Homework10_Stepanenko;
 			packageProductDependencies = (
 			);
 			productName = Homework10_Stepanenko;
-			productReference = C69E93D32DA586940017213B /* Homework10_Stepanenko.app */;
+			productReference = C69E93F42DA665EF0017213B /* Homework10_Stepanenko.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C69E93CB2DA586940017213B /* Project object */ = {
+		C69E93EC2DA665EF0017213B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					C69E93D22DA586940017213B = {
+					C69E93F32DA665EF0017213B = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = C69E93CE2DA586940017213B /* Build configuration list for PBXProject "Homework10_Stepanenko" */;
+			buildConfigurationList = C69E93EF2DA665EF0017213B /* Build configuration list for PBXProject "Homework10_Stepanenko" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = C69E93CA2DA586940017213B;
+			mainGroup = C69E93EB2DA665EF0017213B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = C69E93D42DA586940017213B /* Products */;
+			productRefGroup = C69E93F52DA665EF0017213B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C69E93D22DA586940017213B /* Homework10_Stepanenko */,
+				C69E93F32DA665EF0017213B /* Homework10_Stepanenko */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C69E93D12DA586940017213B /* Resources */ = {
+		C69E93F22DA665EF0017213B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +128,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C69E93CF2DA586940017213B /* Sources */ = {
+		C69E93F02DA665EF0017213B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +138,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C69E93E72DA586950017213B /* Debug */ = {
+		C69E94082DA665F10017213B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -150,7 +150,6 @@
 				INFOPLIST_FILE = Homework10_Stepanenko/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -166,7 +165,7 @@
 			};
 			name = Debug;
 		};
-		C69E93E82DA586950017213B /* Release */ = {
+		C69E94092DA665F10017213B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -178,7 +177,6 @@
 				INFOPLIST_FILE = Homework10_Stepanenko/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -194,7 +192,7 @@
 			};
 			name = Release;
 		};
-		C69E93E92DA586950017213B /* Debug */ = {
+		C69E940A2DA665F10017213B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -257,7 +255,7 @@
 			};
 			name = Debug;
 		};
-		C69E93EA2DA586950017213B /* Release */ = {
+		C69E940B2DA665F10017213B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -316,25 +314,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C69E93CE2DA586940017213B /* Build configuration list for PBXProject "Homework10_Stepanenko" */ = {
+		C69E93EF2DA665EF0017213B /* Build configuration list for PBXProject "Homework10_Stepanenko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C69E93E92DA586950017213B /* Debug */,
-				C69E93EA2DA586950017213B /* Release */,
+				C69E940A2DA665F10017213B /* Debug */,
+				C69E940B2DA665F10017213B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C69E93E62DA586950017213B /* Build configuration list for PBXNativeTarget "Homework10_Stepanenko" */ = {
+		C69E94072DA665F10017213B /* Build configuration list for PBXNativeTarget "Homework10_Stepanenko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C69E93E72DA586950017213B /* Debug */,
-				C69E93E82DA586950017213B /* Release */,
+				C69E94082DA665F10017213B /* Debug */,
+				C69E94092DA665F10017213B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C69E93CB2DA586940017213B /* Project object */;
+	rootObject = C69E93EC2DA665EF0017213B /* Project object */;
 }
