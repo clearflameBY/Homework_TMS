@@ -11,9 +11,10 @@ import SnapKit
 class View: UIView {
     
     private var menuButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "menuButton"), for: .focused)
+        button.setImage(UIImage(named: "menuButton"), for: .normal)
+        button.backgroundColor = .clear
         return button
     }()
     
@@ -22,6 +23,8 @@ class View: UIView {
         label.numberOfLines = 1
         label.text = "0"
         label.textColor = .white
+        label.textAlignment = .right
+        label.font = UIFont.systemFont(ofSize: 90)
         return label
     }()
     
@@ -33,16 +36,18 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .gray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
     private var plusMinusButton: UIButton = {
         let button = UIButton()
-        button.setTitle("AC", for: .normal)
+        button.setTitle("+/-", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         button.backgroundColor = .gray
         return button
     }()
@@ -52,20 +57,18 @@ class View: UIView {
         button.setTitle("%", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .gray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
     private var divideButton: UIButton = {
         let button = UIButton()
-        button.setTitle("AC", for: .normal)
+        button.setTitle("÷", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -77,6 +80,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -88,6 +92,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -99,17 +104,19 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
     private var multiplyButton: UIButton = {
         let button = UIButton()
-        button.setTitle("4", for: .normal)
+        button.setTitle("×", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -118,9 +125,8 @@ class View: UIView {
         button.setTitle("4", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -132,6 +138,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -143,6 +150,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -154,6 +162,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -165,6 +174,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -176,6 +186,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -187,6 +198,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -198,17 +210,20 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var watButton: UIButton = {
+    private var calculatorButton: UIButton = {
         let button = UIButton()
-        button.setTitle("AC", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "calculator"), for: .normal)
+        button.backgroundColor = .clear
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -220,6 +235,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -231,6 +247,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -242,6 +259,7 @@ class View: UIView {
         //button.frame.size = .init(width: 40, height: 40)
         //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
@@ -320,7 +338,7 @@ class View: UIView {
         fourthLineButtonsGroupContainer.addArrangedSubview(twoButton)
         fourthLineButtonsGroupContainer.addArrangedSubview(threeButton)
         fourthLineButtonsGroupContainer.addArrangedSubview(plusButton)
-        fifthLineButtonsGroupContainer.addArrangedSubview(watButton)
+        fifthLineButtonsGroupContainer.addArrangedSubview(calculatorButton)
         fifthLineButtonsGroupContainer.addArrangedSubview(zeroButton)
         fifthLineButtonsGroupContainer.addArrangedSubview(commaButton)
         fifthLineButtonsGroupContainer.addArrangedSubview(equalsButton)
@@ -358,7 +376,8 @@ class View: UIView {
         menuButton.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(50)
             make.leading.equalToSuperview()
-            make.height.width.equalTo(20)
+            make.height.equalTo(30)
+            make.width.equalTo(60)
         }
         
         buttonAC.snp.makeConstraints{ make in
@@ -425,7 +444,7 @@ class View: UIView {
             make.width.height.equalTo(90)
         }
         
-        watButton.snp.makeConstraints{ make in
+        calculatorButton.snp.makeConstraints{ make in
             make.width.height.equalTo(90)
         }
         
@@ -442,9 +461,9 @@ class View: UIView {
         }
         
         label.snp.makeConstraints { make in
-            make.top.equalTo(menuButton.snp.bottom)
-            make.horizontalEdges.equalToSuperview().offset(10)
-            make.height.equalTo(300)
+            make.top.equalTo(menuButton.snp.bottom).offset(200)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(100)
         }
     }
 }
