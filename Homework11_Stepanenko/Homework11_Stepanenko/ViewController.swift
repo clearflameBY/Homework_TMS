@@ -41,6 +41,12 @@ class ViewController: UIViewController {
         customView.equalsButton.addTarget(self, action: #selector(equalsButtonTapped), for: .touchUpInside)
         
         customView.buttonAC.addTarget(self, action: #selector(buttonACTapped), for: .touchUpInside)
+        
+        customView.commaButton.addTarget(self, action: #selector(commaButtonTapped), for: .touchUpInside)
+        
+        customView.plusMinusButton.addTarget(self, action: #selector(plusMinusButtonTapped), for: .touchUpInside)
+        
+        customView.percentButton.addTarget(self, action: #selector(percentButtonTapped), for: .touchUpInside)
     }
     
     @objc
@@ -66,7 +72,7 @@ class ViewController: UIViewController {
         if isTypingNumber {
             customView.textField.text! += "3"
         } else {
-            customView.textField.text = "2"
+            customView.textField.text = "3"
             isTypingNumber = true
         }
     }
@@ -188,7 +194,36 @@ class ViewController: UIViewController {
         firstNumber = 0
         operation = ""
     }
+    
+    @objc
+    private func commaButtonTapped() {
+        if isTypingNumber {
+            if !(customView.textField.text?.contains(".") ?? false) {
+                customView.textField.text! += "."
+            }
+        } else {
+            customView.textField.text = "0."
+            isTypingNumber = true
+        }
+    }
+    
+    @objc
+    private func plusMinusButtonTapped() {
+        if var value = Double(customView.textField.text!) {
+            value *= -1
+            customView.textField.text = String(value)
+        }
+    }
+    
+    @objc
+    private func percentButtonTapped() {
+        if let value = Double(customView.textField.text!) {
+            customView.textField.text = String(value / 100)
+        }
+    }
 }
+
+
 //#Preview(traits: .portrait) {
 //    ViewController()
 //}
