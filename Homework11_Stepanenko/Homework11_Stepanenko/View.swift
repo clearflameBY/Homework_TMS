@@ -18,41 +18,37 @@ class View: UIView {
         return button
     }()
     
-    private var label: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.text = "0"
-        label.textColor = .white
-        label.textAlignment = .right
-        label.font = UIFont.systemFont(ofSize: 90)
-        return label
+    var textField: UITextField = {
+        let textField = UITextField()
+        //textField.numberOfLines = 1
+        textField.text = "0"
+        textField.textColor = .white
+        textField.textAlignment = .right
+        textField.font = UIFont.systemFont(ofSize: 90)
+        return textField
     }()
     
-    private var buttonAC: UIButton = {
+    var buttonAC: UIButton = {
         let button = UIButton()
         button.setTitle("AC", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .gray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var plusMinusButton: UIButton = {
+    var plusMinusButton: UIButton = {
         let button = UIButton()
         button.setTitle("+/-", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         button.backgroundColor = .gray
         return button
     }()
     
-    private var percentButton: UIButton = {
+    var percentButton: UIButton = {
         let button = UIButton()
         button.setTitle("%", for: .normal)
         button.layer.cornerRadius = 43
@@ -62,7 +58,7 @@ class View: UIView {
         return button
     }()
     
-    private var divideButton: UIButton = {
+    var divideButton: UIButton = {
         let button = UIButton()
         button.setTitle("÷", for: .normal)
         button.layer.cornerRadius = 43
@@ -72,55 +68,47 @@ class View: UIView {
         return button
     }()
     
-    private var sevenButton: UIButton = {
+    var sevenButton: UIButton = {
         let button = UIButton()
         button.setTitle("7", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var eightButton: UIButton = {
+    var eightButton: UIButton = {
         let button = UIButton()
         button.setTitle("8", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var nineButton: UIButton = {
+    var nineButton: UIButton = {
         let button = UIButton()
         button.setTitle("9", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var multiplyButton: UIButton = {
+    var multiplyButton: UIButton = {
         let button = UIButton()
         button.setTitle("×", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var fourButton: UIButton = {
+    var fourButton: UIButton = {
         let button = UIButton()
         button.setTitle("4", for: .normal)
         button.layer.cornerRadius = 43
@@ -130,134 +118,112 @@ class View: UIView {
         return button
     }()
     
-    private var fiveButton: UIButton = {
+    var fiveButton: UIButton = {
         let button = UIButton()
         button.setTitle("5", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var sixButton: UIButton = {
+    var sixButton: UIButton = {
         let button = UIButton()
         button.setTitle("6", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var minusButton: UIButton = {
+    var minusButton: UIButton = {
         let button = UIButton()
         button.setTitle("-", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var oneButton: UIButton = {
+    var oneButton: UIButton = {
         let button = UIButton()
         button.setTitle("1", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var twoButton: UIButton = {
+    var twoButton: UIButton = {
         let button = UIButton()
         button.setTitle("2", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var threeButton: UIButton = {
+    var threeButton: UIButton = {
         let button = UIButton()
         button.setTitle("3", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var plusButton: UIButton = {
+    var plusButton: UIButton = {
         let button = UIButton()
         button.setTitle("+", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var calculatorButton: UIButton = {
+    var calculatorButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "calculator"), for: .normal)
         button.backgroundColor = .clear
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var zeroButton: UIButton = {
+    var zeroButton: UIButton = {
         let button = UIButton()
         button.setTitle("0", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var commaButton: UIButton = {
+    var commaButton: UIButton = {
         let button = UIButton()
         button.setTitle(",", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .darkGray
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
     }()
     
-    private var equalsButton: UIButton = {
+    var equalsButton: UIButton = {
         let button = UIButton()
         button.setTitle("=", for: .normal)
         button.layer.cornerRadius = 43
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.frame.size = .init(width: 40, height: 40)
-        //button.isUserInteractionEnabled = true
         button.backgroundColor = .systemOrange
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         return button
@@ -316,7 +282,7 @@ class View: UIView {
     private func setupUI() {
         backgroundColor = .black
         addSubview(menuButton)
-        addSubview(label)
+        addSubview(textField)
         addSubview(firstLineButtonsGroupContainer)
         addSubview(secondLineButtonsGroupContainer)
         addSubview(thirdLineButtonsGroupContainer)
@@ -344,7 +310,7 @@ class View: UIView {
         fifthLineButtonsGroupContainer.addArrangedSubview(equalsButton)
         
         firstLineButtonsGroupContainer.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom)
+            make.top.equalTo(textField.snp.bottom)
             make.leading.equalToSuperview().inset(10)
             make.trailing.equalToSuperview().inset(10)
         }
@@ -460,7 +426,7 @@ class View: UIView {
             make.width.height.equalTo(90)
         }
         
-        label.snp.makeConstraints { make in
+        textField.snp.makeConstraints { make in
             make.top.equalTo(menuButton.snp.bottom).offset(200)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(100)
