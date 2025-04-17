@@ -45,7 +45,7 @@ class SecondViewController: UIViewController {
     @objc func presentModal() {
         let modalVC = ModalViewController()
         modalVC.modalPresentationStyle = .pageSheet
-        present(modalVC, animated: true, completion: nil)
+        present(modalVC, animated: true)
     }
 }
 
