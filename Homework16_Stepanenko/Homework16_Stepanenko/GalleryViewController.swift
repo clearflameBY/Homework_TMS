@@ -13,86 +13,121 @@ class GalleryViewController: UIViewController {
     var currentIndex = 0
 
     let imageView = UIImageView()
+    var nextImageView: UIImageView?
+
     var originalCenter: CGPoint = .zero
-    var currentScale: CGFloat = 1.0
+    var originalTransform: CGAffineTransform = .identity
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-
+        view.backgroundColor = .white
         setupImageView()
         setupGestures()
         showImage()
     }
 
-    func setupImageView() {
+    private func setupImageView() {
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = view.bounds
         imageView.isUserInteractionEnabled = true
+        imageView.frame = view.bounds
         view.addSubview(imageView)
         originalCenter = imageView.center
+        originalTransform = imageView.transform
     }
 
-    func setupGestures() {
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+    private func setupGestures() {
+        // Свайп
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         imageView.addGestureRecognizer(pan)
 
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
+        // Пинч
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
         imageView.addGestureRecognizer(pinch)
 
-        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+        // Двойной тап
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
         doubleTap.numberOfTapsRequired = 2
         imageView.addGestureRecognizer(doubleTap)
     }
 
-    func showImage() {
-        imageView.image = UIImage(named: images[currentIndex])
-        resetTransform()
+    private func showImage() {
+        let imageName = images[currentIndex % images.count]
+        imageView.image = UIImage(named: imageName)
+        resetImageViewPosition()
     }
 
-    func resetTransform() {
-        UIView.animate(withDuration: 0.2) {
+    private func resetImageViewPosition() {
+        UIView.animate(withDuration: 0.25) {
             self.imageView.transform = .identity
-            self.imageView.center = self.originalCenter
+            self.imageView.center = self.view.center
         }
-        currentScale = 1.0
+        originalCenter = view.center
+        originalTransform = .identity
     }
 
-    @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
+    @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
+        let direction: CGFloat = translation.x < 0 ? 1 : -1 // 1 — влево (следующая), -1 — вправо (предыдущая)
 
         switch gesture.state {
+        case .began:
+            let nextIndex = (currentIndex + Int(direction) + images.count) % images.count
+            let nextImage = UIImage(named: images[nextIndex])
+            nextImageView = UIImageView(image: nextImage)
+            nextImageView?.contentMode = .scaleAspectFit
+            nextImageView?.frame = view.bounds
+            nextImageView?.center = CGPoint(x: view.center.x + direction * view.bounds.width, y: view.center.y)
+            nextImageView?.isUserInteractionEnabled = false
+            if let next = nextImageView {
+                view.addSubview(next)
+            }
+
         case .changed:
             imageView.center = CGPoint(x: originalCenter.x + translation.x, y: originalCenter.y)
-        case .ended:
+            nextImageView?.center = CGPoint(x: view.center.x + direction * view.bounds.width + translation.x, y: view.center.y)
+
+        case .ended, .cancelled:
             if abs(translation.x) > 100 {
-                if translation.x < 0 {
-                    currentIndex = (currentIndex + 1) % images.count
-                } else {
-                    currentIndex = (currentIndex - 1 + images.count) % images.count
-                }
-                showImage()
+                // Завершаем перелистывание
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.imageView.center = CGPoint(x: self.originalCenter.x - direction * self.view.bounds.width, y: self.originalCenter.y)
+                    self.nextImageView?.center = self.view.center
+                }, completion: { _ in
+                    self.currentIndex = (self.currentIndex + Int(direction) + self.images.count) % self.images.count
+                    self.imageView.image = self.nextImageView?.image
+                    self.imageView.transform = .identity
+                    self.imageView.center = self.view.center
+                    self.originalCenter = self.view.center
+                    self.originalTransform = .identity
+                    self.nextImageView?.removeFromSuperview()
+                    self.nextImageView = nil
+                })
             } else {
-                UIView.animate(withDuration: 0.3) {
+                // Возвращаем обратно
+                UIView.animate(withDuration: 0.25, animations: {
                     self.imageView.center = self.originalCenter
-                }
+                    self.nextImageView?.center = CGPoint(x: self.view.center.x + direction * self.view.bounds.width, y: self.view.center.y)
+                }, completion: { _ in
+                    self.nextImageView?.removeFromSuperview()
+                    self.nextImageView = nil
+                })
             }
+
         default:
             break
         }
     }
 
-    @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+    @objc private func handlePinch(_ gesture: UIPinchGestureRecognizer) {
         if gesture.state == .changed || gesture.state == .began {
-            let scale = gesture.scale
-            let transform = imageView.transform.scaledBy(x: scale, y: scale)
-            imageView.transform = transform
-            currentScale *= scale
-            gesture.scale = 1
+            let scaledTransform = originalTransform.scaledBy(x: gesture.scale, y: gesture.scale)
+            imageView.transform = scaledTransform
+        } else if gesture.state == .ended {
+            originalTransform = imageView.transform
         }
     }
 
-    @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
-        resetTransform()
+    @objc private func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
+        resetImageViewPosition()
     }
 }
