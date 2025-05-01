@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		C65BDC8F2DB6C10A002D25A9 /* Homework16_Stepanenko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework16_Stepanenko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C620E7782DC34082004A7B80 /* Task17FromStepanenko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task17FromStepanenko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C65BDCA12DB6C10C002D25A9 /* Exceptions for "Homework16_Stepanenko" folder in "Homework16_Stepanenko" target */ = {
+		C620E78A2DC34084004A7B80 /* Exceptions for "Task17FromStepanenko" folder in "Task17FromStepanenko" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = C65BDC8E2DB6C10A002D25A9 /* Homework16_Stepanenko */;
+			target = C620E7772DC34082004A7B80 /* Task17FromStepanenko */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C65BDC912DB6C10A002D25A9 /* Homework16_Stepanenko */ = {
+		C620E77A2DC34082004A7B80 /* Task17FromStepanenko */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C65BDCA12DB6C10C002D25A9 /* Exceptions for "Homework16_Stepanenko" folder in "Homework16_Stepanenko" target */,
+				C620E78A2DC34084004A7B80 /* Exceptions for "Task17FromStepanenko" folder in "Task17FromStepanenko" target */,
 			);
-			path = Homework16_Stepanenko;
+			path = Task17FromStepanenko;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C65BDC8C2DB6C10A002D25A9 /* Frameworks */ = {
+		C620E7752DC34082004A7B80 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C65BDC862DB6C10A002D25A9 = {
+		C620E76F2DC34082004A7B80 = {
 			isa = PBXGroup;
 			children = (
-				C65BDC912DB6C10A002D25A9 /* Homework16_Stepanenko */,
-				C65BDC902DB6C10A002D25A9 /* Products */,
+				C620E77A2DC34082004A7B80 /* Task17FromStepanenko */,
+				C620E7792DC34082004A7B80 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C65BDC902DB6C10A002D25A9 /* Products */ = {
+		C620E7792DC34082004A7B80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C65BDC8F2DB6C10A002D25A9 /* Homework16_Stepanenko.app */,
+				C620E7782DC34082004A7B80 /* Task17FromStepanenko.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,64 +61,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C65BDC8E2DB6C10A002D25A9 /* Homework16_Stepanenko */ = {
+		C620E7772DC34082004A7B80 /* Task17FromStepanenko */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C65BDCA22DB6C10C002D25A9 /* Build configuration list for PBXNativeTarget "Homework16_Stepanenko" */;
+			buildConfigurationList = C620E78B2DC34084004A7B80 /* Build configuration list for PBXNativeTarget "Task17FromStepanenko" */;
 			buildPhases = (
-				C65BDC8B2DB6C10A002D25A9 /* Sources */,
-				C65BDC8C2DB6C10A002D25A9 /* Frameworks */,
-				C65BDC8D2DB6C10A002D25A9 /* Resources */,
+				C620E7742DC34082004A7B80 /* Sources */,
+				C620E7752DC34082004A7B80 /* Frameworks */,
+				C620E7762DC34082004A7B80 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C65BDC912DB6C10A002D25A9 /* Homework16_Stepanenko */,
+				C620E77A2DC34082004A7B80 /* Task17FromStepanenko */,
 			);
-			name = Homework16_Stepanenko;
+			name = Task17FromStepanenko;
 			packageProductDependencies = (
 			);
-			productName = Lesson16;
-			productReference = C65BDC8F2DB6C10A002D25A9 /* Homework16_Stepanenko.app */;
+			productName = Task17FromStepanenko;
+			productReference = C620E7782DC34082004A7B80 /* Task17FromStepanenko.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C65BDC872DB6C10A002D25A9 /* Project object */ = {
+		C620E7702DC34082004A7B80 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					C65BDC8E2DB6C10A002D25A9 = {
+					C620E7772DC34082004A7B80 = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
-			buildConfigurationList = C65BDC8A2DB6C10A002D25A9 /* Build configuration list for PBXProject "Homework16_Stepanenko" */;
+			buildConfigurationList = C620E7732DC34082004A7B80 /* Build configuration list for PBXProject "Task17FromStepanenko" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = C65BDC862DB6C10A002D25A9;
+			mainGroup = C620E76F2DC34082004A7B80;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = C65BDC902DB6C10A002D25A9 /* Products */;
+			productRefGroup = C620E7792DC34082004A7B80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C65BDC8E2DB6C10A002D25A9 /* Homework16_Stepanenko */,
+				C620E7772DC34082004A7B80 /* Task17FromStepanenko */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C65BDC8D2DB6C10A002D25A9 /* Resources */ = {
+		C620E7762DC34082004A7B80 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +128,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C65BDC8B2DB6C10A002D25A9 /* Sources */ = {
+		C620E7742DC34082004A7B80 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +138,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C65BDCA32DB6C10C002D25A9 /* Debug */ = {
+		C620E78C2DC34084004A7B80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PMRNR7N3WD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Homework16_Stepanenko/Info.plist;
+				INFOPLIST_FILE = Task17FromStepanenko/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -157,7 +157,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "None. Homework16_Stepanenko";
+				PRODUCT_BUNDLE_IDENTIFIER = None.Task17FromStepanenko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -165,7 +165,7 @@
 			};
 			name = Debug;
 		};
-		C65BDCA42DB6C10C002D25A9 /* Release */ = {
+		C620E78D2DC34084004A7B80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -174,7 +174,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PMRNR7N3WD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Homework16_Stepanenko/Info.plist;
+				INFOPLIST_FILE = Task17FromStepanenko/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -184,7 +184,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "None. Homework16_Stepanenko";
+				PRODUCT_BUNDLE_IDENTIFIER = None.Task17FromStepanenko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -192,7 +192,7 @@
 			};
 			name = Release;
 		};
-		C65BDCA52DB6C10C002D25A9 /* Debug */ = {
+		C620E78E2DC34084004A7B80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -256,7 +256,7 @@
 			};
 			name = Debug;
 		};
-		C65BDCA62DB6C10C002D25A9 /* Release */ = {
+		C620E78F2DC34084004A7B80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -316,25 +316,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C65BDC8A2DB6C10A002D25A9 /* Build configuration list for PBXProject "Homework16_Stepanenko" */ = {
+		C620E7732DC34082004A7B80 /* Build configuration list for PBXProject "Task17FromStepanenko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C65BDCA52DB6C10C002D25A9 /* Debug */,
-				C65BDCA62DB6C10C002D25A9 /* Release */,
+				C620E78E2DC34084004A7B80 /* Debug */,
+				C620E78F2DC34084004A7B80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C65BDCA22DB6C10C002D25A9 /* Build configuration list for PBXNativeTarget "Homework16_Stepanenko" */ = {
+		C620E78B2DC34084004A7B80 /* Build configuration list for PBXNativeTarget "Task17FromStepanenko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C65BDCA32DB6C10C002D25A9 /* Debug */,
-				C65BDCA42DB6C10C002D25A9 /* Release */,
+				C620E78C2DC34084004A7B80 /* Debug */,
+				C620E78D2DC34084004A7B80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C65BDC872DB6C10A002D25A9 /* Project object */;
+	rootObject = C620E7702DC34082004A7B80 /* Project object */;
 }
