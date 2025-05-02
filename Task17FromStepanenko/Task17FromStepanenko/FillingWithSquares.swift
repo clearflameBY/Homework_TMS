@@ -72,7 +72,7 @@ class FillingWithSquares: UIViewController {
         // Анимируем каждый квадрат с случайной задержкой
         for (index, square) in animatedSquares.enumerated() {
             squares.append(square)
-            let randomDelay = Double.random(in: 0...(Double(index) * 0.002)) // больше индекс — больше разброс
+            let randomDelay = Double.random(in: 0...(Double(index) * 0.1)) // больше индекс — больше разброс
 
             UIView.animate(withDuration: 0.3,
                            delay: randomDelay,
