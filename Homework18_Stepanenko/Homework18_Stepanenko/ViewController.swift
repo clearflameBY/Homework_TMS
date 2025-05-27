@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             label.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -20),
 
             textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 160),
             textField.widthAnchor.constraint(equalToConstant: 250),
 
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
