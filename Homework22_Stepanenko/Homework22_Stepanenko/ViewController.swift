@@ -128,7 +128,7 @@ class ViewController: UIViewController {
         picker.delegate = self
         picker.allowsEditing = false
 
-        present(picker, animated: true, completion: nil)
+        present(picker, animated: true)
     }
 }
 
