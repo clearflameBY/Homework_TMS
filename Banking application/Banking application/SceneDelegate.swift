@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Homework12_Stepanenko
+//  Banking application
 //
-//  Created by Илья Степаненко on 13.04.25.
+//  Created by Илья Степаненко on 2.08.25.
 //
 
 import UIKit
@@ -13,16 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        print("Hello, World!")
-        guard let scene = (scene as? UIWindowScene) else { return }
-        
-        window = UIWindow(windowScene: scene)
-        
-        let viewController = FirstDelegateViewController()
-        
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
-
+                guard let windowScene = (scene as? UIWindowScene) else { return }
+                window = UIWindow(windowScene: windowScene)
+                window?.rootViewController = MainTabBarController()
+                window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
