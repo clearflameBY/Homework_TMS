@@ -40,7 +40,12 @@ class ViewController: UIViewController {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-        tableView.topAnchor.constraint (equalTo: view.topAnchor), tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor), tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor), tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+        tableView.topAnchor.constraint (equalTo: view.topAnchor),
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        
         ])
         
         tableView.dataSource = self
@@ -60,7 +65,7 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell") as? SettingsTableViewCell else { return UITableViewCell() }
         
         cell.configureCell(settings: settings[indexPath.section])
-
+        
         return cell
     }
     

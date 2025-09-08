@@ -1,12 +1,13 @@
 //
-//  MetalPrice.swift
+//  MetaPrice.swift
 //  Banking application
 //
-//  Created by Илья Степаненко on 7.09.25.
+//  Created by Илья Степаненко on 22.08.25.
 //
+import Foundation
 
-
-struct MetalPrice: Decodable {
+struct MetaPriceForChart: Equatable, Decodable, Identifiable {
+    let id = UUID()
     let date: String
     let metalId: Int
     let value: Double

@@ -11,20 +11,28 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let dashboardVC = UINavigationController(rootViewController: DashboardViewController())
-        dashboardVC.tabBarItem = UITabBarItem(title: "Галоўная старонка", image: UIImage(systemName: "house"), tag: 0)
+        dashboardVC.tabBarItem = UITabBarItem(title: "Главная страница", image: UIImage(systemName: CustomImagesAssets.house), tag: 0)
         
         let mapVC = UINavigationController(rootViewController: MapViewController())
-        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(systemName: "map"), tag: 1)
+        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(systemName: CustomImagesAssets.map), tag: 1)
         
-        let ratesVC = UINavigationController(rootViewController: RatesViewController())
-        ratesVC.tabBarItem = UITabBarItem(title: "Курсы", image: UIImage(systemName: "dollarsign.circle"), tag: 2)
+//        let ratesVC = UINavigationController(rootViewController: RatesViewController())
+//        ratesVC.tabBarItem = UITabBarItem(title: "Курсы", image: UIImage(systemName: "CustomImagesAssets.dollarsignCircle), tag: 2)
         
         let converterVC = UINavigationController(rootViewController: ConverterViewController())
-        converterVC.tabBarItem = UITabBarItem(title: "Конвертер", image: UIImage(systemName: "arrow.left.arrow.right"), tag: 3)
+        converterVC.tabBarItem = UITabBarItem(title: "Конвертер", image: UIImage(systemName: CustomImagesAssets.arrowLeftArrowRight), tag: 3)
         
         let settingsVC = UINavigationController(rootViewController: SettingsViewController())
-        settingsVC.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: "gear"), tag: 4)
+        settingsVC.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: CustomImagesAssets.gear), tag: 4)
         
-        viewControllers = [dashboardVC, mapVC, ratesVC, converterVC, settingsVC]
+        viewControllers = [dashboardVC, mapVC/*, ratesVC*/, converterVC, settingsVC]
     }
+}
+
+struct CustomImagesAssets {
+    static let house = "house"
+    static let map = "map"
+    static let dollarsignCircle = "dollarsign.circle"
+    static let arrowLeftArrowRight = "arrow.left.arrow.right"
+    static let gear = "gear"
 }

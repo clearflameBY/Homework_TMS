@@ -8,6 +8,7 @@
 import Foundation
 
 class CurrencyService {
+    
     func fetchRates(completion: @escaping (Result<[CurrencyRate], Error>) -> Void) {
         let urlString = "https://api.nbrb.by/exrates/rates?periodicity=0"
         guard let url = URL(string: urlString) else { return }

@@ -24,19 +24,20 @@ final class DashboardView: UIView {
         return button
      }()
     
+    let rates: UITableView = {
+        let view = UITableView()
+        view.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //view.separatorStyle = .singleLine
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
     private let notificationsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("🔔", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 22)
         return button
-    }()
-    
-    let ratesStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 5
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
     }()
     
     let fromCurrencyPicker = UIPickerView()
@@ -92,7 +93,8 @@ final class DashboardView: UIView {
         headerStack.addArrangedSubview(balanceLabel)
         headerStack.addArrangedSubview(notificationsButton)
         
-        addSubview(ratesStack)
+        addSubview(rates)
+        //addSubview(ratesStack)
         
         addSubview(allRatesButton)
         
@@ -110,11 +112,16 @@ final class DashboardView: UIView {
             headerStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             headerStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            ratesStack.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: 20),
-            ratesStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            ratesStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            rates.topAnchor.constraint(equalTo: headerStack.bottomAnchor),
+            rates.leadingAnchor.constraint(equalTo: leadingAnchor),
+            rates.trailingAnchor.constraint(equalTo: trailingAnchor),
+            rates.heightAnchor.constraint(equalToConstant: 250),
             
-            allRatesButton.topAnchor.constraint(equalTo: ratesStack.bottomAnchor, constant: 5),
+//            ratesStack.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: 20),
+//            ratesStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+//            ratesStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            allRatesButton.topAnchor.constraint(equalTo: rates.bottomAnchor, constant: 5),
             allRatesButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             mainStack.topAnchor.constraint(equalTo: allRatesButton.bottomAnchor, constant: 5),
