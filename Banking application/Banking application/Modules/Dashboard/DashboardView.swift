@@ -27,7 +27,6 @@ final class DashboardView: UIView {
     let rates: UITableView = {
         let view = UITableView()
         view.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        //view.separatorStyle = .singleLine
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
         return view
@@ -94,8 +93,6 @@ final class DashboardView: UIView {
         headerStack.addArrangedSubview(notificationsButton)
         
         addSubview(rates)
-        //addSubview(ratesStack)
-        
         addSubview(allRatesButton)
         
         addSubview(converterStack)
@@ -116,10 +113,6 @@ final class DashboardView: UIView {
             rates.leadingAnchor.constraint(equalTo: leadingAnchor),
             rates.trailingAnchor.constraint(equalTo: trailingAnchor),
             rates.heightAnchor.constraint(equalToConstant: 250),
-            
-//            ratesStack.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: 20),
-//            ratesStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            ratesStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
             allRatesButton.topAnchor.constraint(equalTo: rates.bottomAnchor, constant: 5),
             allRatesButton.centerXAnchor.constraint(equalTo: centerXAnchor),

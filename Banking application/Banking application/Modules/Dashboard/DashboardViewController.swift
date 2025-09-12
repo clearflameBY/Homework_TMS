@@ -10,52 +10,51 @@ import SwiftUI
 
 final class DashboardViewController: UIViewController {
     
-    private var rates: [CurrencyRate] = []
-//    private var metals: [MetalPrice] = []
-    private var curenciesData: [String] = []
+    static var rates: [CurrencyRate] = []
+    static var curenciesData: [String] = []
     private var currencyCodes: [String] = []
-    private var currentTagOfLabel = 0
     private var currentAbbreviationOfCurrency = ""
+    let formatter = DateFormatter()
     
     private let service = CurrencyService()
-    
-    private let customView = DashboardView()
+    static let customView = DashboardView()
 
     override func loadView() {
-        view = customView
+        view = DashboardViewController.customView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Dashboard"
+        formatter.dateFormat = "yyyy-MM-dd"
         
         fetchData()
         
         let openRates = UIAction(handler: { _ in
             self.openAllRates()
         })
+        
         let calculateConversion = UIAction(handler: { _ in
             self.calculateConversion()
         })
         
-        let recognizer = UITapGestureRecognizer(target: customView, action: #selector(customView.endEditing))
-        recognizer.numberOfTapsRequired = 1
+        let recognizer = UITapGestureRecognizer(target: DashboardViewController.customView, action: #selector(DashboardViewController.customView.endEditing))
         recognizer.cancelsTouchesInView = false // for working tableView
-        customView.addGestureRecognizer(recognizer)
+        DashboardViewController.customView.addGestureRecognizer(recognizer)
         
-        customView.allRatesButton.addAction(openRates, for: .touchUpInside)
-        customView.amountField.addAction(calculateConversion, for: .editingChanged)
-        customView.fromCurrencyPicker.dataSource = self
-        customView.fromCurrencyPicker.delegate = self
-        customView.toCurrencyPicker.dataSource = self
-        customView.toCurrencyPicker.delegate = self
-        customView.rates.dataSource = self
-        customView.rates.delegate = self
+        DashboardViewController.customView.allRatesButton.addAction(openRates, for: .touchUpInside)
+        DashboardViewController.customView.amountField.addAction(calculateConversion, for: .editingChanged)
+        DashboardViewController.customView.fromCurrencyPicker.dataSource = self
+        DashboardViewController.customView.fromCurrencyPicker.delegate = self
+        DashboardViewController.customView.toCurrencyPicker.dataSource = self
+        DashboardViewController.customView.toCurrencyPicker.delegate = self
+        DashboardViewController.customView.rates.dataSource = self
+        DashboardViewController.customView.rates.delegate = self
     }
     
     private func fetchData() {
-        service.fetchRates { [weak self] result in
+        service.fetchRatesForCurrency { [weak self] result in
             switch result {
             case .success(let rates):
                 self?.handleSuccessFetchRates(rates)
@@ -68,84 +67,54 @@ final class DashboardViewController: UIViewController {
     private func handleSuccessFetchRates(_ rates: [CurrencyRate]) {
         var allRates = rates
         
-        let byn = CurrencyRate(curID: 0, curAbbreviation: "BYN", curScale: 1, curName: "Белорусский рубль", curOfficialRate: 1.0)
+        let byn = CurrencyRate( date: formatter.string(from: Date()), curOfficialRate: 1.0, curID: 0, curAbbreviation: "BYN", curScale: 1, curName: "Белорусский рубль")
         allRates.insert(byn, at: 0)
         
-        self.rates = allRates
+        DashboardViewController.rates = allRates
         self.currencyCodes = allRates.map { $0.curAbbreviation }
         
         DispatchQueue.main.async {
             self.updateRatesUI()
-            self.customView.fromCurrencyPicker.reloadAllComponents()
-            self.customView.toCurrencyPicker.reloadAllComponents()
+            DashboardViewController.customView.fromCurrencyPicker.reloadAllComponents()
+            DashboardViewController.customView.toCurrencyPicker.reloadAllComponents()
         }
     }
     
     private func updateRatesUI() {        
         // Валюты
         let wantedCurrencies = ["UAH", "USD", "EUR", "RUB"]
-        for rate in rates.filter({ wantedCurrencies.contains($0.curAbbreviation) }) {
+        for rate in DashboardViewController.rates.filter({ wantedCurrencies.contains($0.curAbbreviation) }) {
             let ratePerOne = rate.curOfficialRate / Double(rate.curScale)
-            curenciesData.append("\(rate.curAbbreviation): \(String(format: "%.4f", ratePerOne)) BYN")
+            DashboardViewController.curenciesData.append("\(rate.curAbbreviation): \(String(format: "%.4f", ratePerOne)) BYN")
         }
         
         // Металлы
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
         var dayForMetalCurrency = Date()
         
         while Calendar.current.isDateInWeekend(dayForMetalCurrency) {
             dayForMetalCurrency = Calendar.current.date(byAdding: .day, value: -1, to: dayForMetalCurrency)!
         }
-        
         let dayForMetalCurrencyString = formatter.string(from: dayForMetalCurrency)
-        let metalsURL = URL(string: "https://api.nbrb.by/bankingots/prices?startdate=\(dayForMetalCurrencyString)&endDate=\(dayForMetalCurrencyString)")!
-        
-        URLSession.shared.dataTask(with: metalsURL) { [weak self] data, _, error  in
-            guard let self = self, let data = data else { return }
-            do {
-                let metals = try JSONDecoder().decode([MetalPrice].self, from: data)
-                let filtered = metals.filter { $0.metalId == 0 || $0.metalId == 1 }
-                
-                DispatchQueue.main.async {
-                    for metal in filtered {
-                        let name = metal.metalId == 0 ? "Золото" : "Серебро"
-                        self.curenciesData.append("\(name): \(metal.value) BYN/грамм")
-                    }
-                    self.customView.rates.reloadData()
-                }
-            } catch {
-                print("Ошибка парсинга металлов:", error)
-                print("Ответ сервера:", String(data: data, encoding: .utf8) ?? "нет данных")
-            }
-        }.resume()
+
+        service.fetchRatesForMetals(dayForMetalCurrencyString: dayForMetalCurrencyString)
     }
-    
-//    private func loadLastWorkdayRates() -> [MetalPrice]? {
-//        guard let data = UserDefaults.standard.data(forKey: "lastWorkdayRates"),
-//              let metals = try? JSONDecoder().decode([MetalPrice].self, from: data) else {
-//            return nil
-//        }
-//        return metals
-//    }
-    
     
     @objc private func showGraph(row: Int) {
         var currencyId = 0
         var currentAbbreviationOfCurrency = ""
-        var curScale = 1
+        var curScale = 1.0
         
         switch row {
         case 0:
-            currencyId = 431
-            currentAbbreviationOfCurrency = "USD"
-        case 1:
-            currencyId = 451
-            currentAbbreviationOfCurrency = "EUR"
-        case 2:
             currencyId = 449
             currentAbbreviationOfCurrency = "UAH"
             curScale = 100
+        case 1:
+            currencyId = 431
+            currentAbbreviationOfCurrency = "USD"
+        case 2:
+            currencyId = 451
+            currentAbbreviationOfCurrency = "EUR"
         case 3:
             currencyId = 456
             currentAbbreviationOfCurrency = "RUB"
@@ -173,19 +142,19 @@ final class DashboardViewController: UIViewController {
     
     private func calculateConversion() {
         guard
-            let fromCode = currencyCodes[safe: customView.fromCurrencyPicker.selectedRow(inComponent: 0)],
-            let toCode = currencyCodes[safe: customView.toCurrencyPicker.selectedRow(inComponent: 0)],
-            let amountText = customView.amountField.text,
+            let fromCode = currencyCodes[safe: DashboardViewController.customView.fromCurrencyPicker.selectedRow(inComponent: 0)],
+            let toCode = currencyCodes[safe: DashboardViewController.customView.toCurrencyPicker.selectedRow(inComponent: 0)],
+            let amountText = DashboardViewController.customView.amountField.text,
             let amount = Double(amountText),
-            let fromRateData = rates.first(where: { $0.curAbbreviation == fromCode }),
-            let toRateData = rates.first(where: { $0.curAbbreviation == toCode })
+            let fromRateData = DashboardViewController.rates.first(where: { $0.curAbbreviation == fromCode }),
+            let toRateData = DashboardViewController.rates.first(where: { $0.curAbbreviation == toCode })
         else { return }
         
         let fromRatePerOne = fromRateData.curOfficialRate / Double(fromRateData.curScale)
         let toRatePerOne = toRateData.curOfficialRate / Double(toRateData.curScale)
         
         let result = amount * (fromRatePerOne / toRatePerOne)
-        customView.resultLabel.text = String(format: "Результат: %.2f", result)
+        DashboardViewController.customView.resultLabel.text = String(format: "Результат: %.2f", result)
     }
     
     private func openAllRates() {
@@ -216,20 +185,20 @@ extension Collection {
 
 extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return curenciesData.count
+        return DashboardViewController.curenciesData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.selectionStyle = .default
         cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
-        cell.textLabel?.text = curenciesData[indexPath.row]
+        cell.textLabel?.text = DashboardViewController.curenciesData[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        customView.rates.deselectRow(at: indexPath, animated: true)
+        DashboardViewController.customView.rates.deselectRow(at: indexPath, animated: true)
         showGraph(row: indexPath.row)
     }
 }

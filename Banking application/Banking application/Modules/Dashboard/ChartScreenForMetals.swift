@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct ChartScreenForMetals: View {
-    @State private var history: [MetaPriceForChart] = []
+    @State private var history: [MetalModel] = []
     private let service = CurrencyServiceForCharts()
     let curId: Int
     let currencyName: String
@@ -39,7 +39,6 @@ struct ChartScreenForMetals: View {
     
     private func loadData() async {
         let endDate = Date()
-        //endDate = Calendar.current.date(byAdding: .day, value: -2, to: endDate)!
         let startDate = Calendar.current.date(byAdding: .day, value: -7, to: endDate)!
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

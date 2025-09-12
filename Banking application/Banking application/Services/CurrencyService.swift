@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class CurrencyService {
     
-    func fetchRates(completion: @escaping (Result<[CurrencyRate], Error>) -> Void) {
+    func fetchRatesForCurrency(completion: @escaping (Result<[CurrencyRate], Error>) -> Void) {
         let urlString = "https://api.nbrb.by/exrates/rates?periodicity=0"
         guard let url = URL(string: urlString) else { return }
         
@@ -33,5 +34,29 @@ class CurrencyService {
                 }
             }
         }.resume()
+    }
+    
+    func fetchRatesForMetals(dayForMetalCurrencyString: String) {
+        
+        let metalsURL = URL(string: "https://api.nbrb.by/bankingots/prices?startdate=\(dayForMetalCurrencyString)&endDate=\(dayForMetalCurrencyString)")!
+        
+        URLSession.shared.dataTask(with: metalsURL) { data, _, error  in
+            guard let data = data else { return }
+            do {
+                let metals = try JSONDecoder().decode([MetalModel].self, from: data)
+                
+                DispatchQueue.main.async {
+                    for metal in metals {
+                        let name = metal.metalId == 0 ? "Золото" : "Серебро"
+                        DashboardViewController.curenciesData.append("\(name): \(metal.value) BYN/грамм")
+                    }
+                    DashboardViewController.customView.rates.reloadData()
+                }
+            } catch {
+                print("Ошибка парсинга металлов:", error)
+                print("Ответ сервера:", String(data: data, encoding: .utf8) ?? "нет данных")
+            }
+        }.resume()
+      
     }
 }
