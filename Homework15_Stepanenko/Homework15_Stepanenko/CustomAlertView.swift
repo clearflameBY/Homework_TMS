@@ -94,5 +94,6 @@ class CustomAlertView: UIView {
         }) { _ in
             self.removeFromSuperview()
         }
+        ViewController.isAlertShown.toggle()
     }
 }

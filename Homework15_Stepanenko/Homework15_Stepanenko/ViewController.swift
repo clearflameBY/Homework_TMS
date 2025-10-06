@@ -7,6 +7,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    static var isAlertShown: Bool = false
         
     private lazy var showAlertButton: UIButton = {
         let button = UIButton(type: .system)
@@ -21,12 +23,16 @@ class ViewController: UIViewController {
         
     @objc private func showAlert() {
         
+        guard ViewController.isAlertShown == false else { return }
+        
         let alertView = CustomAlertView(frame: CGRect(x: 50, y: -150, width: self.view.frame.width - 100, height: 170))
         self.view.addSubview(alertView)
         
         UIView.animate(withDuration: 0.3, animations: {
             alertView.frame.origin.y = 100
         })
+        
+        ViewController.isAlertShown.toggle()
     }
     
     override func viewDidLoad() {
